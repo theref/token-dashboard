@@ -1,0 +1,6 @@
+branch: 'main'
+gha_enabled: True
+description: 'This is a web3 dashboard for managing stakes and interacting with the threshold applications.'
+docs:
+  react: ["https://react.dev/reference/react", "We use react for web development"]
+blocked_dirs: ['.github/', '.husky/', '.storybook/']
