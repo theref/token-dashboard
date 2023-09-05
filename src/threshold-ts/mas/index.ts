@@ -75,11 +75,16 @@ export class MultiAppStaking {
       },
     ]
 
+<<<<<<< HEAD
     const [
       tbtcMinAuthorizationParams,
       randomBeaconMinAuthorizationParams,
       tacoMinAuthorizationParams,
     ] = await this._multicall.aggregate(calls)
+=======
+    const [tbtcMinAuthorizationParams, randomBeaconMinAuthorizationParams, tacoMinAuthorizationParams] =
+      await this._multicall.aggregate(calls)
+>>>>>>> 1a23f6f3 (Continue replacing PRE with TACo)
 
     return {
       tbtc: tbtcMinAuthorizationParams,
