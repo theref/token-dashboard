@@ -7,17 +7,23 @@ const stakingAppNameToAppLabel: Record<StakingAppName, string> = {
   taco: "TACo",
 }
 
-const stakingAppAddressToName: { [key: string]: string } = {
-  [threshold.multiAppStaking.ecdsa.address]: stakingAppNameToAppLabel.tbtc,
-  [threshold.multiAppStaking.randomBeacon.address]:
-    stakingAppNameToAppLabel.randomBeacon,
-  [threshold.multiAppStaking.taco.address]: stakingAppNameToAppLabel.taco,
+const stakingAppAddressToAppName: Record<string, StakingAppName> = {
+  [threshold.multiAppStaking.ecdsa.address]: "tbtc",
+  [threshold.multiAppStaking.randomBeacon.address]: "randomBeacon",
+  [threshold.multiAppStaking.taco.address]: "taco",
 }
 
-export const getStakingAppNameFromAddress = (stakingAppAddress: string) => {
-  return stakingAppAddressToName[stakingAppAddress] ?? "App"
+export const getStakingAppNameFromAppAddress = (stakingAppAddress: string) => {
+  return stakingAppAddressToAppName[stakingAppAddress]
 }
 
-export const getSakingAppLabel = (stakingAppName: StakingAppName) => {
-  return stakingAppNameToAppLabel[stakingAppName]
+export const getStakingAppLabelFromAppName = (
+  stakingAppName: StakingAppName
+) => {
+  return stakingAppNameToAppLabel[stakingAppName] || "App"
+}
+
+export const getStakingAppLabelFromAppAddress = (address: string) => {
+  const appName = getStakingAppNameFromAppAddress(address)
+  return getStakingAppLabelFromAppName(appName) || "App"
 }
